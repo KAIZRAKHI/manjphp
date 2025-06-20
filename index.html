@@ -1560,22 +1560,22 @@
       }
 
       // Form submission optimization
-      const contactForm = document.getElementById("contactForm");
-      if (contactForm) {
-        contactForm.addEventListener("submit", function (e) {
-          const submitBtn = document.getElementById("submitBtn");
-          if (submitBtn && !submitBtn.disabled) {
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = "<span>Sending...</span>";
+      // const contactForm = document.getElementById("contactForm");
+      // if (contactForm) {
+      //   contactForm.addEventListener("submit", function (e) {
+      //     const submitBtn = document.getElementById("submitBtn");
+      //     if (submitBtn && !submitBtn.disabled) {
+      //       submitBtn.disabled = true;
+      //       submitBtn.innerHTML = "<span>Sending...</span>";
 
-            // Re-enable button after 3 seconds (fallback)
-            setTimeout(() => {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = "<span>Send Message</span>";
-            }, 3000);
-          }
-        });
-      }
+      //       // Re-enable button after 3 seconds (fallback)
+      //       setTimeout(() => {
+      //         submitBtn.disabled = false;
+      //         submitBtn.innerHTML = "<span>Send Message</span>";
+      //       }, 3000);
+      //     }
+      //   });
+      // }
 
       // AOS initialization (optimized)
       if (typeof AOS !== "undefined") {
