@@ -1143,8 +1143,6 @@
             </h3>
             <form
               id="contactForm"
-              action="https://brandcrafters.byethost14.com/handler.php"
-              method="POST"
               class="space-y-6"
             >
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1427,6 +1425,31 @@
       })();
     </script> -->
     <!--End of Tawk.to Script -->
+    <script>
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch("https://brandcrafters.byethost14.com/handler.php", {
+    method: "POST",
+    body: formData,
+  })
+  .then(response => {
+    if (response.ok) {
+      window.location.href = "thankyou.html";
+    } else {
+      alert("Form submission failed.");
+    }
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    alert("Something went wrong.");
+  });
+});
+</script>
+
 
     <!-- Optimized JavaScript for Performance -->
     <script>
