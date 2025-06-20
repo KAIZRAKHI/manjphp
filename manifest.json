@@ -1,0 +1,24 @@
+{
+  "name": "Manjaly Infrastructure - Best Building Contractors in Kerala",
+  "short_name": "Manjaly Builders",
+  "description": "Manjaly Builders – Trusted Best Building Contractors in Kerala for quality residential & commercial construction with on-time delivery.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#c3dcb5",
+  "theme_color": "#1a1a1a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/favicon-BKQihvu8.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/manjani-logo-qn1_C1XG.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "construction"],
+  "lang": "en"
+}

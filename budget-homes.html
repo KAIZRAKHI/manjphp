@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manjaly Budget Homes</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-BKQihvu8.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-BKQihvu8.ico"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background-color: #c3dcb5;
+        color: black;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        max-width: 100vw;
+      }
+      .nav-link {
+        color: #cce4bc;
+        transition: all 0.3s ease;
+      }
+      .nav-link:hover {
+        color: #8bc272;
+      }
+      .nav-link.active {
+        color: #8bc272;
+      }
+      .hamburger {
+        width: 24px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: white;
+        border-radius: 2px;
+        transition: 0.25s ease-in-out;
+      }
+
+      .hamburger span:nth-child(1) {
+        top: 0px;
+      }
+      .hamburger span:nth-child(2) {
+        top: 9px;
+      }
+      .hamburger span:nth-child(3) {
+        top: 18px;
+      }
+
+      /* Animated State */
+      .hamburger.active span:nth-child(1) {
+        top: 9px;
+        transform: rotate(45deg);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        top: 9px;
+        transform: rotate(-45deg);
+      }
+
+      /* Prevent scroll when menu is open */
+      body.menu-open {
+        overflow: hidden;
+      }
+      .nav-container {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        box-sizing: border-box;
+      }
+
+      /* Mobile menu styles */
+      #mobileMenu {
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+      }
+
+      /* Container for nav content */
+      .nav-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+
+      /* Logo container */
+      .logo-container {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      /* Desktop menu container */
+      .desktop-menu {
+        flex-grow: 0;
+        flex-shrink: 1;
+      }
+
+      @media (max-width: 1024px) {
+        .nav-container {
+          padding: 0;
+        }
+
+        .nav-content {
+          padding: 1rem;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="assets/main-Dqbv5mv1.js"></script>
+    <link rel="stylesheet" crossorigin href="assets/main-DGRWbgL8.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#1a1a1a] bg-opacity-95">
+      <div class="nav-container">
+        <div class="nav-content">
+          <!-- Logo section -->
+          <div class="logo-container">
+            <a href="/" class="text-2xl font-bold flex items-center">
+              <span class="text-white flex items-center gap-2">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/manjani-logo-qn1_C1XG.png"
+                  alt="logo"
+                  class="h-8 w-auto"
+                />
+                <span class="flex flex-col">
+                  <span>Manjaly</span>
+                  <span>Infrastructures</span>
+                </span>
+              </span>
+            </a>
+          </div>
+
+          <!-- Hamburger button -->
+          <button class="lg:hidden text-white hamburger-btn" id="menuBtn">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+
+          <!-- Desktop menu -->
+          <div class="hidden lg:flex items-center space-x-8 desktop-menu">
+            <a href="/" class="nav-link active" data-section="home"
+              >Home</a
+            >
+            <a href="about.html" class="nav-link" data-section="about">About</a>
+            <a href="partners.html" class="nav-link" data-section="partners"
+              >Partner Companies</a
+            >
+            <a href="projects.html" class="nav-link" data-section="projects"
+              >Projects</a
+            >
+
+            <a href="blog.html" class="nav-link" data-section="blog"> Blog </a>
+            <a
+              href="/#contact"
+              class="px-4 py-2 text-white rounded hover:text-black hover:bg-[#cce4bc] border border-2 border-[#cce4bc] transition-all"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobileMenu"
+      class="lg:hidden fixed inset-0 bg-[#1a1a1a] bg-opacity-95 transform translate-x-full transition-transform duration-300 ease-in-out z-40"
+    >
+      <div class="flex flex-col items-center justify-center h-full space-y-8">
+        <a
+          href="/"
+          class="nav-link active text-2xl"
+          data-section="home"
+          >Home</a
+        >
+        <a href="about.html" class="nav-link text-2xl" data-section="about"
+          >About</a
+        >
+        <a
+          href="partners.html"
+          class="nav-link text-2xl"
+          data-section="partners"
+          >Partner Companies</a
+        >
+        <a
+          href="projects.html"
+          class="nav-link text-2xl"
+          data-section="projects"
+          >Projects</a
+        >
+
+        <a href="blog.html" class="nav-link text-2xl" data-section="blog"
+          >Blog</a
+        >
+        <a
+          href="/#contact"
+          class="px-6 py-3 text-white text-2xl rounded hover:text-black hover:bg-white border-2 border-white transition-all"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+    <!-- Hero Section -->
+    <section
+      class="relative min-h-screen flex flex-col justify-between w-full overflow-hidden"
+    >
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 w-full">
+        <img
+          src="https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/home-9iD4G5fd.jpg"
+          alt="Best Builders in Kerala"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 flex-1 flex items-center justify-center">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 text-center pt-20">
+          <h1
+            class="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 md:mb-5 leading-tight text-[#cce4bc]"
+            data-aos="fade-down"
+          >
+            Manjaly Budget Homes<br />
+          </h1>
+          <p
+            class="text-base sm:text-lg md:text-xl mb-6 md:mb-10 max-w-2xl mx-auto text-[#cce4bc]"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Experience comfort, serenity, and luxury in the heart of Thrissur.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-2 md:gap-3"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <a href="#about">
+              <button
+                class="bg-[#cce4bc] text-black px-6 py-2.5 text-sm rounded hover:bg-[#cce4bc]/80 transition-all w-[180px]"
+              >
+                Learn About Us
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 md:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6" data-aos="fade-right">
+            <h2 class="text-4xl md:text-5xl font-bold">Who We Are</h2>
+            <p class="text-lg">
+              Manjaly Infrastructure, introduced first time in India, lists a
+              few construction methods, which can reduce the costs without
+              compromising on the quality and strength of buildings. Depending
+              on the combination of materials using or volume based purchasing
+              will really help us to the cost of construction is very low.
+            </p>
+          </div>
+
+          <div class="relative" data-aos="fade-left">
+            <img
+              src="https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/home-9iD4G5fd.jpg"
+              alt="Best Builders in Kerala"
+              class="w-full rounded-lg shadow-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-4 md:px-8 bg-[#1a1a1a]">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-4xl md:text-5xl font-bold mb-12 text-center text-[#cce4bc]"
+          data-aos="fade-down"
+        >
+          Why Choose Us?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Feature 1 -->
+          <div
+            class="p-6 border-2 border-[#cce4bc]/10 rounded-lg"
+            data-aos="fade-up"
+          >
+            <div class="text-[#cce4bc] text-2xl mb-4">✅</div>
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Innovative Construction Techniques
+            </h3>
+            <p class="text-[#c3dcb5]">
+              We introduce advanced building methods that reduce costs while
+              maintaining structural integrity and durability.
+            </p>
+          </div>
+          <!-- Feature 2 -->
+          <div
+            class="p-6 border-2 border-[#cce4bc]/10 rounded-lg"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="text-[#cce4bc] text-2xl mb-4">✅</div>
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Optimized Material Selection
+            </h3>
+            <p class="text-[#c3dcb5]">
+              By carefully choosing the right combination of materials, we
+              ensure efficiency without compromising quality.
+            </p>
+          </div>
+          <!-- Feature 3 -->
+          <div
+            class="p-6 border-2 border-[#cce4bc]/10 rounded-lg"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="text-[#cce4bc] text-2xl mb-4">✅</div>
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Volume-Based Purchasing
+            </h3>
+            <p class="text-[#c3dcb5]">
+              Bulk procurement strategies help lower material costs, making
+              construction more economical for our clients.
+            </p>
+          </div>
+          <!-- Feature 4 -->
+          <div
+            class="p-6 border-2 border-[#cce4bc]/10 rounded-lg"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="text-[#cce4bc] text-2xl mb-4">✅</div>
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Cost-Effective Without Compromise
+            </h3>
+            <p class="text-[#c3dcb5]">
+              Our approach ensures affordability while upholding high standards
+              in strength, safety, and longevity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Gallery -->
+    <section class="py-20 px-4 md:px-8">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-4xl md:text-5xl font-bold mb-12 text-center"
+          data-aos="fade-down"
+        >
+          Explore Our Creations
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Project 1 -->
+          <div class="group relative cursor-pointer" data-aos="fade-up">
+            <div class="relative overflow-hidden rounded-lg">
+              <img
+                src="https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/home1-CgiCKV6c.jpg"
+                alt="Best Builders in Kerala"
+                class="w-full h-80 object-cover rounded-lg transition-transform duration-500"
+              />
+            </div>
+          </div>
+          <div class="group relative cursor-pointer" data-aos="fade-up">
+            <div class="relative overflow-hidden rounded-lg">
+              <img
+                src="https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/home2-DesxUXDs.jpg"
+                alt="Best Builders in Kerala"
+                class="w-full h-80 object-cover rounded-lg transition-transform duration-500"
+              />
+            </div>
+          </div>
+          <div class="group relative cursor-pointer" data-aos="fade-up">
+            <div class="relative overflow-hidden rounded-lg">
+              <img
+                src="https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/home3-DH9xDhVd.jpg"
+                alt="Best Builders in Kerala"
+                class="w-full h-80 object-cover rounded-lg transition-transform duration-500"
+              />
+            </div>
+          </div>
+          <div class="group relative cursor-pointer" data-aos="fade-up">
+            <div class="relative overflow-hidden rounded-lg">
+              <img
+                src="https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/home4-B0S1k9h7.jpg"
+                alt="Best Builders in Kerala"
+                class="w-full h-80 object-cover rounded-lg transition-transform duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="relative h-[400px] mb-24 rounded-lg overflow-hidden px-4 md:px-8 mt-8 mx-auto w-[90%]"
+      data-aos="zoom-in"
+    >
+      <img
+        src="assets/mj-ab-1.webp"
+        alt="Best Builders in Kerala"
+        class="absolute inset-0 w-full h-full object-cover opacity-50"
+      />
+      <div
+        class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
+      >
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+          Engage With Our Expert Architects
+        </h2>
+        <p class="text-xl mb-8">Schedule A Consultation Today</p>
+        <a href="/#contact">
+          <button
+            class="bg-black text-[#cce4bc] px-8 py-3 rounded hover:bg-[#cce4bc] hover:text-black transition-colors"
+          >
+            Book Now
+          </button></a
+        >
+      </div>
+    </div>
+    <footer class="bg-[#1a1a1a] py-16 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8">
+          <div>
+            <a href="#" class="text-2xl font-bold flex items-center">
+              <span class="text-white flex items-center gap-2">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/manjani-logo-qn1_C1XG.png"
+                  alt="logo"
+                  class="h-8 w-auto"
+                />
+                <span class="flex flex-col text-[#add299]">
+                  <span>Manjaly</span>
+                  <span>Infrastructures</span>
+                </span>
+              </span>
+            </a>
+            <p class="text-[#c3dcb5] !text-[#c3dcb5] mb-6">
+              Creating innovative architectural solutions that transform spaces
+              and enrich lives. Excellence in design since 1995.
+            </p>
+            <!-- Social Links -->
+            <div class="flex space-x-4">
+              <a
+                href="https://www.facebook.com/ManjalyBuildersThrissur"
+                class="text-[#add299] hover:text-white transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://www.instagram.com/manjalybuilders?igsh=Y3U2eXB4ZDkydXly"
+                class="text-[#add299] hover:text-white transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://wa.me/9526088006"
+                class="text-[#add299] hover:text-white transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-[#add299] font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="/"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="partners.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Partner Companies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="projects.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Projects</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="blog.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Blog</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="/#contact"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h3 class="text-[#add299] font-semibold mb-4">Partner Companies</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="builders-developers.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Manjaly Builders & Developers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="engineers.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Manjaly Sons Building Contractors & Engineers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="budget-homes.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Manjaly Budget Homes</a
+                >
+              </li>
+              <li>
+                <a
+                  href="building-materials.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Manjaly Building Materials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="architect.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Manjaly Architects</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h3 class="text-[#add299] font-semibold mb-4">Contact Info</h3>
+            <ul class="space-y-2 text-[#c3dcb5]">
+              <li>Manjaly Infrastructures</li>
+              <li>KSFE Road</li>
+              <li>Ayyanthole, Thrissur</li>
+              <li>Phone: 9447308583,9526088006</li>
+              <li>Email: manjalisons@yahoo.co.in</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t text-[#add299] pt-8 text-center">
+          <p class="!text-[#add299]">
+            &copy; 2025 Manjaly. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 50,
+        easing: "ease-out-cubic",
+      });
+      // Mobile Menu Functionality
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const hamburger = menuBtn.querySelector(".hamburger");
+
+      menuBtn.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        document.body.classList.toggle("menu-open");
+
+        if (mobileMenu.classList.contains("translate-x-full")) {
+          mobileMenu.classList.remove("translate-x-full");
+          mobileMenu.classList.add("translate-x-0");
+        } else {
+          mobileMenu.classList.remove("translate-x-0");
+          mobileMenu.classList.add("translate-x-full");
+        }
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll("#mobileMenu .nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          document.body.classList.remove("menu-open");
+          mobileMenu.classList.remove("translate-x-0");
+          mobileMenu.classList.add("translate-x-full");
+        });
+      });
+
+      // Close mobile menu when screen size changes to desktop
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+          hamburger.classList.remove("active");
+          document.body.classList.remove("menu-open");
+          mobileMenu.classList.remove("translate-x-0");
+          mobileMenu.classList.add("translate-x-full");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Manjaly Infrastructure</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/main-DGRWbgL8.css" as="style" />
+    <link rel="preload" href="assets/main-Dqbv5mv1.js" as="script" />
+    <link rel="preload" href="assets/mj-ab-1.webp" as="image" />
+    <link rel="preload" href="css/about.css" as="style" />
+    <!-- Cache HTML for 5 minutes, always revalidate -->
+    <meta http-equiv="Cache-Control" content="max-age=300, must-revalidate" />
+    <meta http-equiv="ETag" content="v1.0.0-20250103" />
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//kit.fontawesome.com" />
+    <link rel="dns-prefetch" href="//www.youtube.com" />
+    <link rel="dns-prefetch" href="//img.youtube.com" />
+
+    <!-- Load fonts with font-display: swap -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    /></noscript>
+
+    <!-- Load icon fonts asynchronously -->
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+    /></noscript>
+
+    <!-- Load FontAwesome asynchronously -->
+    <script
+      src="https://kit.fontawesome.com/c075818245.js"
+      crossorigin="anonymous"
+      async
+    ></script>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-BKQihvu8.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-BKQihvu8.ico"
+    />
+
+    <!-- Critical CSS inline for above-the-fold content -->
+    <style>
+      /* Critical styles for immediate rendering */
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background-color: #deefd4;
+        color: black;
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+      }
+      .nav-link {
+        color: #e8f2e2;
+        transition: all 0.3s ease;
+      }
+      .nav-link:hover {
+        color: #cce4bc;
+      }
+      .nav-link.active {
+        color: #cce4bc;
+      }
+      .hamburger {
+        width: 24px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+      }
+      .hamburger span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: white;
+        border-radius: 2px;
+        transition: 0.25s ease-in-out;
+      }
+      .nav-container {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+    </style>
+
+    <!-- Load main CSS -->
+    <link rel="stylesheet" crossorigin href="assets/main-DGRWbgL8.css" />
+    <!-- Load page-specific CSS -->
+    <link rel="stylesheet" href="css/about.css" />
+
+    <!-- Load main JS with defer -->
+    <script
+      type="module"
+      crossorigin
+      src="assets/main-Dqbv5mv1.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#1a1a1a] bg-opacity-95 left-0 right-0">
+      <div class="nav-container">
+        <div class="max-w-7xl mx-auto flex justify-between items-center py-4">
+          <a href="/" class="text-2xl font-bold flex items-center">
+            <span class="text-white flex items-center gap-2">
+              <img
+                src="https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/manjani-logo-qn1_C1XG.png"
+                alt="logo"
+                class="h-8 w-auto"
+                width="32"
+                height="32"
+                loading="eager"
+                decoding="async"
+              />
+              <span class="flex flex-col">
+                <span>Manjaly</span>
+                <span>Infrastructures</span>
+              </span>
+            </span>
+          </a>
+
+          <!-- Hamburger Menu Button -->
+          <button class="lg:hidden text-white hamburger-btn" id="menuBtn">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+
+          <div class="hidden lg:flex items-center space-x-8">
+            <a href="/" class="nav-link active" data-section="home">Home</a>
+            <a href="about.html" class="nav-link" data-section="about">About</a>
+            <a href="partners.html" class="nav-link" data-section="partners"
+              >Partner Companies</a
+            >
+            <a href="projects.html" class="nav-link" data-section="projects"
+              >Projects</a
+            >
+
+            <a href="blog.html" class="nav-link" data-section="blog"> Blog </a>
+            <a
+              href="/#contact"
+              class="px-4 py-2 text-white rounded hover:text-black hover:bg-[#cce4bc] border border-2 border-[#cce4bc] transition-all"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobileMenu"
+      class="lg:hidden fixed inset-0 bg-[#1a1a1a] bg-opacity-95 transform translate-x-full transition-transform duration-300 ease-in-out z-40"
+    >
+      <div class="flex flex-col items-center justify-center h-full space-y-8">
+        <a href="/" class="nav-link active text-2xl" data-section="home"
+          >Home</a
+        >
+        <a href="about.html" class="nav-link text-2xl" data-section="about"
+          >About</a
+        >
+        <a
+          href="partners.html"
+          class="nav-link text-2xl"
+          data-section="partners"
+          >Partner Companies</a
+        >
+        <a
+          href="projects.html"
+          class="nav-link text-2xl"
+          data-section="projects"
+          >Projects</a
+        >
+
+        <a href="blog.html" class="nav-link text-2xl" data-section="blog"
+          >Blog</a
+        >
+        <a
+          href="/#contact"
+          class="px-6 py-3 text-white text-2xl rounded hover:text-black hover:bg-white border-2 border-white transition-all"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center">
+      <div class="absolute inset-0">
+        <img
+          src="assets/mj-ab-1.webp"
+          alt="Best Builders in Kerala"
+          class="w-full h-full object-cover"
+          width="1920"
+          height="1080"
+          loading="eager"
+          decoding="async"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40 backdrop-blur-sm"
+        ></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 text-center">
+        <h1
+          class="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 !text-[#cce4bc]"
+        >
+          Building Tomorrow's<br />Landmarks Today
+        </h1>
+        <p class="text-xl !text-[#cce4bc] mb-8 max-w-3xl mx-auto">
+          With over two decades of architectural excellence, we've been shaping
+          skylines and transforming spaces across the globe.
+        </p>
+        <button
+          class="bg-[#cce4bc] text-black px-8 py-3 rounded hover:bg-[#add299] hover:text-black border-2 border-[#cce4bc] transition-all"
+        >
+          Explore Our Legacy
+        </button>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-20 bg-gradient-2">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Story</h2>
+            <p class="text-black mb-6">
+              Founded in 1995, Manjaly has grown from a small design studio to a
+              leading architectural firm. Our journey has been marked by
+              unwavering commitment to excellence, innovation, and sustainable
+              design practices.
+            </p>
+            <p class="text-black mb-6">
+              Today, we're proud to be at the forefront of architectural
+              innovation, creating spaces that inspire, function flawlessly, and
+              stand the test of time.
+            </p>
+            <div class="grid grid-cols-2 gap-8 mt-8">
+              <div>
+                <h3 class="text-5xl font-bold mb-2">30+</h3>
+                <p class="text-black">Years Experience</p>
+              </div>
+              <div>
+                <h3 class="text-5xl font-bold mb-2">500+</h3>
+                <p class="text-black">Projects Completed</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <div
+              class="youtube-placeholder w-full h-64 md:h-80 lg:h-96 rounded-lg"
+              data-embed="3EAVBUr3o9g"
+            >
+              <img
+                src="https://img.youtube.com/vi/3EAVBUr3o9g/maxresdefault.jpg"
+                alt="Best building contractors in kerala - Video thumbnail"
+                loading="lazy"
+                decoding="async"
+                width="1280"
+                height="720"
+              />
+              <div class="play-button">▶</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-gradient-1">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-black">
+          Why Choose Us
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="bg-[#deedd7] backdrop-blur hover-card rounded-lg p-8 shadow-lg"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-gradient-1 flex items-center justify-center flex-shrink-0 mb-6"
+            >
+              <i class="fa-regular fa-clock text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Time Management</h3>
+            <p class="text-black">
+              Projects are completed on schedule without delays.
+            </p>
+          </div>
+
+          <div
+            class="bg-[#deedd7] backdrop-blur hover-card rounded-lg p-8 shadow-lg"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-gradient-1 flex items-center justify-center flex-shrink-0 mb-6"
+            >
+              <i class="ri-team-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Expert Team</h3>
+            <p class="text-black">
+              Skilled professionals with in-depth industry knowledge.
+            </p>
+          </div>
+
+          <div
+            class="bg-[#deedd7] backdrop-blur hover-card rounded-lg p-8 shadow-lg"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-gradient-1 flex items-center justify-center flex-shrink-0 mb-6"
+            >
+              <i class="fa-solid fa-award text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Proven Track Record</h3>
+            <p class="text-black">
+              Years of experience delivering successful construction projects.
+            </p>
+          </div>
+
+          <div
+            class="bg-[#deedd7] backdrop-blur hover-card rounded-lg p-8 shadow-lg"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-gradient-1 flex items-center justify-center flex-shrink-0 mb-6"
+            >
+              <i class="fa-solid fa-list-check text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">
+              End-to-End Project Management
+            </h3>
+            <p class="text-black">
+              We take care of all legal formalities, including permits,
+              approvals, and paperwork, ensuring a smooth process.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gradient-2">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 text-black">
+          Our Approach to Quality & Execution
+        </h2>
+        <p class="text-black text-center mb-16 max-w-3xl mx-auto">
+          We follow a comprehensive methodology to ensure excellence in every
+          project
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="bg-[#deedd7] backdrop-blur hover-card rounded-lg p-8 shadow-lg"
+          >
+            <div class="flex items-start gap-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-1 flex items-center justify-center flex-shrink-0"
+              >
+                <i class="ri-lightbulb-line text-primary text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-4">
+                  Systematic Project Execution
+                </h3>
+                <ul class="space-y-3 text-black">
+                  <li>
+                    • Regular requisitioning, reporting, and apex-level control
+                    ensure cost and time efficiency
+                  </li>
+                  <li>
+                    • Dedicated General Manager and structured teams for smooth
+                    operations
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-[#deedd7] backdrop-blur hover-card rounded-lg p-8 shadow-lg"
+          >
+            <div class="flex items-start gap-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-1 flex items-center justify-center flex-shrink-0"
+              >
+                <i class="ri-tools-line text-primary text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-4">On-Site Quality Control</h3>
+                <ul class="space-y-3 text-black">
+                  <li>• Fully equipped laboratories at each site</li>
+                  <li>
+                    • Daily material testing as per Indian Standards before use
+                  </li>
+                  <li>
+                    • Strict quality checklists to ensure top-tier workmanship
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-[#deedd7] backdrop-blur hover-card rounded-lg p-8 shadow-lg"
+          >
+            <div class="flex items-start gap-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-1 flex items-center justify-center flex-shrink-0"
+              >
+                <i class="ri-bar-chart-line text-primary text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-4">
+                  Project Monitoring & Reporting
+                </h3>
+                <ul class="space-y-3 text-black">
+                  <li>• Pre-planned program charts for all projects</li>
+                  <li>
+                    • Regular progress monitoring and monthly reports with
+                    photos for clients
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-[#deedd7] backdrop-blur hover-card rounded-lg p-8 shadow-lg"
+          >
+            <div class="flex items-start gap-6">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-1 flex items-center justify-center flex-shrink-0"
+              >
+                <i class="ri-book-open-line text-primary text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-4">Training & Innovation</h3>
+                <ul class="space-y-3 text-black">
+                  <li>
+                    • In-house training sessions for engineers and workers
+                  </li>
+                  <li>
+                    • Custom mix designs tested for strength and workability in
+                    projects
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="py-20 bg-gradient-1">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="bg-gradient-2 backdrop-blur rounded-lg p-8 md:p-12">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <!-- Vision Side -->
+            <div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-8">Our Vision</h2>
+              <div class="space-y-6">
+                <p class="text-black text-lg leading-relaxed">
+                  To be the global leader in innovative architectural solutions,
+                  creating sustainable spaces that enhance lives and
+                  communities.
+                </p>
+                <div class="space-y-4 mt-8">
+                  <div class="flex items-start space-x-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0"
+                    >
+                      <i class="ri-focus-3-line text-primary text-2xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold mb-2">Innovation First</h3>
+                      <p class="text-black">
+                        Pushing boundaries with cutting-edge design solutions
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0"
+                    >
+                      <i class="ri-earth-line text-primary text-2xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold mb-2">Sustainability</h3>
+                      <p class="text-black">
+                        Creating eco-friendly spaces for future generations
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mission Side -->
+            <div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-8">Our Mission</h2>
+              <div class="space-y-6">
+                <p class="text-black text-lg leading-relaxed">
+                  To deliver exceptional architectural solutions that transform
+                  spaces, enrich communities, and exceed client expectations
+                  through innovation and sustainable practices.
+                </p>
+                <div class="space-y-4 mt-8">
+                  <div class="flex items-start space-x-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0"
+                    >
+                      <i class="ri-shield-star-line text-primary text-2xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold mb-2">Excellence</h3>
+                      <p class="text-black">
+                        Maintaining the highest standards in every project we
+                        undertake
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0"
+                    >
+                      <i class="ri-team-line text-primary text-2xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold mb-2">Collaboration</h3>
+                      <p class="text-black">
+                        Working closely with clients to bring their vision to
+                        life
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-20 bg-gradient-1">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 text-black">
+          Our Journey
+        </h2>
+        <p class="text-black text-center mb-16 max-w-3xl mx-auto">
+          A legacy of excellence since 1994
+        </p>
+
+        <div class="relative">
+          <!-- Vertical Line -->
+          <div
+            class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-800"
+          ></div>
+
+          <!-- Timeline Items -->
+          <div class="space-y-16">
+            <!-- Item 1 -->
+            <div
+              class="flex flex-col md:flex-row items-center justify-end md:justify-between"
+            >
+              <div class="w-full md:w-5/12 order-2 md:order-1 bg-gradient-1">
+                <div
+                  class="border-2 border-black p-6 rounded-lg hover:border-black/30 transition-colors"
+                >
+                  <h3 class="text-xl font-bold mb-3">Foundation</h3>
+                  <p class="text-black">
+                    Founded in 1994 by Mr. Jaison J Manjaly, Manjaly
+                    Infrastructure has grown into one of South India's leading
+                    construction companies.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div
+              class="flex flex-col md:flex-row items-center justify-end md:justify-between"
+            >
+              <div class="w-full md:w-5/12"></div>
+              <div
+                class="w-4 h-4 rounded-full bg-white border-4 border-black hidden md:flex items-center justify-center z-10 my-4 md:my-0 timeline-dot"
+              ></div>
+              <div class="w-full md:w-5/12 bg-gradient-1">
+                <div
+                  class="border-2 border-black p-6 rounded-lg hover:border-black/30 transition-colors"
+                >
+                  <h3 class="text-xl font-bold mb-3">Strong Presence</h3>
+                  <p class="text-black">
+                    Headquartered in Trichur, Kerala, with a team of 125+
+                    professionals and a strong operational network across the
+                    region.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div
+              class="flex flex-col md:flex-row items-center justify-end md:justify-between"
+            >
+              <div class="w-full md:w-5/12 order-2 md:order-1 bg-gradient-1">
+                <div
+                  class="border-2 border-black p-6 rounded-lg hover:border-black/30 transition-colors"
+                >
+                  <h3 class="text-xl font-bold mb-3">Rapid Growth</h3>
+                  <p class="text-black">
+                    16+ years of rapid growth, delivering high-quality civil
+                    engineering solutions and setting new industry standards.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div
+              class="flex flex-col md:flex-row items-center justify-end md:justify-between"
+            >
+              <div class="w-full md:w-5/12"></div>
+              <div
+                class="w-4 h-4 rounded-full bg-white border-4 border-black hidden md:flex items-center justify-center z-10 my-4 md:my-0 timeline-dot"
+              ></div>
+              <div class="w-full md:w-5/12 bg-gradient-1">
+                <div
+                  class="border-2 border-black p-6 rounded-lg hover:border-black/30 transition-colors"
+                >
+                  <h3 class="text-xl font-bold mb-3">Trusted Excellence</h3>
+                  <p class="text-black">
+                    Trusted by top builders in Kerala, executing prestigious
+                    projects with integrity, professionalism, and customer
+                    satisfaction at the core.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div
+              class="flex flex-col md:flex-row items-center justify-end md:justify-between"
+            >
+              <div class="w-full md:w-5/12 order-2 md:order-1 bg-gradient-1">
+                <div
+                  class="border-2 border-black p-6 rounded-lg hover:border-black/30 transition-colors"
+                >
+                  <h3 class="text-xl font-bold mb-3">Raising the Bar</h3>
+                  <p class="text-black">
+                    Implemented advanced quality control measures, ensuring high
+                    standards in every project.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div
+              class="flex flex-col md:flex-row items-center justify-end md:justify-between"
+            >
+              <div class="w-full md:w-5/12"></div>
+              <div
+                class="w-4 h-4 rounded-full bg-white border-4 border-black hidden md:flex items-center justify-center z-10 my-4 md:my-0 timeline-dot"
+              ></div>
+              <div class="w-full md:w-5/12 bg-gradient-1">
+                <div
+                  class="border-2 border-black p-6 rounded-lg hover:border-black/30 transition-colors"
+                >
+                  <h3 class="text-xl font-bold mb-3">Pushing Boundaries</h3>
+                  <p class="text-black">
+                    Continuing to set new benchmarks, delivering on-time,
+                    high-quality construction with a focus on client
+                    satisfaction.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gradient-2">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 text-black">
+          What our clients say about working with us
+        </h2>
+
+        <div class="relative overflow-hidden">
+          <div
+            class="testimonial-slider flex transition-transform duration-500"
+          >
+            <!-- Video Testimonial -->
+            <div class="testimonial-slide w-full flex-shrink-0">
+              <div class="max-w-3xl mx-auto">
+                <div class="aspect-video w-full mb-6">
+                  <video
+                    class="w-full h-full rounded-lg"
+                    controls
+                    preload="metadata"
+                    width="800"
+                    height="450"
+                  >
+                    <source
+                      src="https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/manjaly-testi.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+
+            <!-- Text Testimonial 1 -->
+            <div class="testimonial-slide w-full flex-shrink-0">
+              <div class="max-w-3xl mx-auto text-center">
+                <div class="mb-8">
+                  <i class="ri-double-quotes-l text-6xl text-primary/30"></i>
+                </div>
+                <p class="text-xl md:text-2xl text-black mb-8">
+                  "Working with Manjaly Infrastructure was an exceptional
+                  experience. Their attention to detail and commitment to
+                  quality exceeded our expectations. The team's professionalism
+                  and expertise were evident throughout the project."
+                </p>
+                <div class="flex items-center justify-center space-x-4">
+                  <div>
+                    <h4 class="font-bold text-black">Sarah Johnson</h4>
+                    <p class="text-black">Project Developer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Text Testimonial 2 -->
+            <div class="testimonial-slide w-full flex-shrink-0">
+              <div class="max-w-3xl mx-auto text-center">
+                <div class="mb-8">
+                  <i class="ri-double-quotes-l text-6xl text-primary/30"></i>
+                </div>
+                <p class="text-xl md:text-2xl text-black mb-8">
+                  "From concept to completion, Manjaly Infrastructure
+                  demonstrated unparalleled expertise. Their ability to
+                  understand our vision and translate it into reality was
+                  remarkable."
+                </p>
+                <div class="flex items-center justify-center space-x-4">
+                  <div>
+                    <h4 class="font-bold text-black">David Kumar</h4>
+                    <p class="text-black">Property Developer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hidden lg:block">
+            <!-- Previous Button -->
+            <button
+              class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black text-white rounded-full p-3 transition-all"
+              id="prevBtn"
+            >
+              <i class="ri-arrow-left-line text-2xl"></i>
+            </button>
+            <!-- Next Button -->
+            <button
+              class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black text-white rounded-full p-3 transition-all"
+              id="nextBtn"
+            >
+              <i class="ri-arrow-right-line text-2xl"></i>
+            </button>
+          </div>
+
+          <!-- Navigation Dots -->
+          <div class="flex justify-center space-x-2 mt-8">
+            <button
+              class="w-3 h-3 rounded-full bg-gray-600 dot active"
+            ></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 dot"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-600 dot"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div
+      class="relative h-[400px] w-[90%] mb-24 rounded-lg overflow-hidden px-4 md:px-8 mt-8 mx-auto"
+      data-aos="zoom-in"
+    >
+      <img
+        src="assets/mj-ab-2.webp"
+        alt="Best Builders in Kerala"
+        class="absolute inset-0 w-full h-full object-cover opacity-50"
+        width="800"
+        height="400"
+        loading="lazy"
+        decoding="async"
+      />
+      <div
+        class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 w-[90%]"
+      >
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+          Engage With Our Expert Architects
+        </h2>
+        <p class="text-xl mb-8">Schedule A Consultation Today</p>
+        <a href="/#contact">
+          <button
+            class="bg-black text-[#cce4bc] px-8 py-3 rounded hover:bg-[#cce4bc] hover:text-black transition-colors text-center"
+          >
+            Book Now
+          </button></a
+        >
+      </div>
+    </div>
+    <footer class="bg-[#1a1a1a] py-16 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8">
+          <div>
+            <a href="#" class="text-2xl font-bold flex items-center">
+              <span class="text-white flex items-center gap-2">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/brandcrafters01/media@main/manjani-logo-qn1_C1XG.png"
+                  alt="logo"
+                  class="h-8 w-auto"
+                  width="32"
+                  height="32"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="flex flex-col text-[#add299]">
+                  <span>Manjaly</span>
+                  <span>Infrastructures</span>
+                </span>
+              </span>
+            </a>
+            <p class="text-[#c3dcb5] !text-[#c3dcb5] mb-6">
+              Creating innovative architectural solutions that transform spaces
+              and enrich lives. Excellence in design since 1995.
+            </p>
+            <!-- Social Links -->
+            <div class="flex space-x-4">
+              <a
+                href="https://www.facebook.com/ManjalyBuildersThrissur"
+                class="text-[#add299] hover:text-white transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://www.instagram.com/manjalybuilders?igsh=Y3U2eXB4ZDkydXly"
+                class="text-[#add299] hover:text-white transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://wa.me/9526088006"
+                class="text-[#add299] hover:text-white transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-[#add299] font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="/"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="partners.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Partner Companies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="projects.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Projects</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="blog.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Blog</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="/#contact"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h3 class="text-[#add299] font-semibold mb-4">Partner Companies</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="builders-developers.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Manjaly Builders & Developers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="engineers.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Manjaly Sons Building Contractors & Engineers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="budget-homes.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Manjaly Budget Homes</a
+                >
+              </li>
+              <li>
+                <a
+                  href="building-materials.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Manjaly Building Materials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="architect.html"
+                  class="text-[#c3dcb5] hover:text-white transition-colors"
+                  >Manjaly Architects</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h3 class="text-[#add299] font-semibold mb-4">Contact Info</h3>
+            <ul class="space-y-2 text-[#c3dcb5]">
+              <li>Manjaly Infrastructures</li>
+              <li>KSFE Road</li>
+              <li>Ayyanthole, Thrissur</li>
+              <li>Phone: 9447308583,9526088006</li>
+              <li>Email: manjalisons@yahoo.co.in</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t text-[#add299] pt-8 text-center">
+          <p class="!text-[#add299]">
+            &copy; 2025 Manjaly. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- Load page-specific JavaScript -->
+    <script src="js/about.js" defer></script>
+  </body>
+</html>

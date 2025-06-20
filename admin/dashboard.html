@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Admin Dashboard - Manjaly</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-BKQihvu8.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-BKQihvu8.ico" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script
+      src="https://upload-widget.cloudinary.com/global/all.js"
+      type="text/javascript"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="canonical" href="https://www.manjalyinfrastructures.com/" />
+    <style>
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background-color: #1a1a1a;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex h-screen">
+      <!-- Sidebar - Desktop -->
+      <div
+        class="hidden md:block w-64 bg-[#242424] border-r border-gray-800 p-6"
+      >
+        <div class="mb-8">
+          <h2 class="text-xl font-bold">Manjaly Admin</h2>
+        </div>
+        <nav class="space-y-4">
+          <a
+            href="#"
+            class="block text-white hover:text-gray-300"
+            data-section="projects"
+          >
+            <i class="ri-building-line mr-2"></i> Projects
+          </a>
+          <!-- <a href="#" class="block text-gray-400 hover:text-white" data-section="gallery">
+                    <i class="ri-image-line mr-2"></i> Gallery
+                </a> -->
+          <!-- <a href="#" class="block text-gray-400 hover:text-white" data-section="clients">
+                    <i class="ri-team-line mr-2"></i> Clients
+                </a> -->
+          <a
+            href="#"
+            class="block text-gray-400 hover:text-white"
+            data-section="blog"
+          >
+            <i class="ri-article-line mr-2"></i> Blog
+          </a>
+        </nav>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 overflow-auto relative">
+        <!-- Header -->
+        <header class="bg-[#242424] border-b border-gray-800 p-4">
+          <div class="flex justify-between items-center">
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white p-2" id="sidebar-toggle">
+              <i class="ri-menu-line text-2xl"></i>
+            </button>
+            <h1 class="text-2xl font-bold">Dashboard</h1>
+            <div class="flex items-center space-x-4">
+              <a
+                href="../index.html"
+                class="text-gray-400 hover:text-white flex items-center"
+              >
+                <i class="ri-home-line mr-2"></i> Home
+              </a>
+              <button
+                id="logoutBtn"
+                class="text-gray-400 hover:text-white flex items-center"
+              >
+                <i class="ri-logout-box-line mr-2"></i> Logout
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Mobile Sidebar -->
+        <div
+          id="mobile-sidebar"
+          class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+        >
+          <div
+            class="w-64 h-full bg-[#242424] p-6 transform -translate-x-full transition-transform duration-200 ease-in-out"
+          >
+            <div class="flex justify-between items-center mb-8">
+              <h2 class="text-xl font-bold">Manjaly Admin</h2>
+              <button class="text-white" id="close-sidebar">
+                <i class="ri-close-line text-2xl"></i>
+              </button>
+            </div>
+            <nav class="space-y-4">
+              <a
+                href="#"
+                class="block text-white hover:text-gray-300"
+                data-section="projects"
+              >
+                <i class="ri-building-line mr-2"></i> Projects
+              </a>
+              <!-- <a href="#" class="block text-gray-400 hover:text-white" data-section="gallery">
+                            <i class="ri-image-line mr-2"></i> Gallery
+                        </a> -->
+              <!-- <a href="#" class="block text-gray-400 hover:text-white" data-section="clients">
+                            <i class="ri-team-line mr-2"></i> Clients
+                        </a> -->
+              <a
+                href="#"
+                class="block text-gray-400 hover:text-white"
+                data-section="blog"
+              >
+                <i class="ri-article-line mr-2"></i> Blog
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="p-6">
+          <!-- Projects Section -->
+          <div id="projects-section" class="section">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-xl font-bold">Projects</h2>
+              <button
+                onclick="openAddProjectModal()"
+                class="bg-white text-black px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base rounded hover:bg-gray-100"
+              >
+                Add Project
+              </button>
+            </div>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+              id="projects-grid"
+            >
+              <!-- Projects will be loaded here -->
+            </div>
+          </div>
+
+          <!-- Gallery Section -->
+          <div id="gallery-section" class="section hidden">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-xl font-bold">Gallery</h2>
+              <button
+                onclick="openAddGalleryModal()"
+                class="bg-white text-black px-4 py-2 rounded hover:bg-gray-100"
+              >
+                Add Gallery Item
+              </button>
+            </div>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              id="gallery-grid"
+            >
+              <!-- Gallery items will be loaded here -->
+            </div>
+          </div>
+
+          <!-- Clients Section -->
+          <div id="clients-section" class="section hidden">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-xl font-bold">Clients</h2>
+              <button
+                onclick="openAddClientModal()"
+                class="bg-white text-black px-4 py-2 rounded hover:bg-gray-100"
+              >
+                Add Client
+              </button>
+            </div>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              id="clients-grid"
+            >
+              <!-- Clients will be loaded here -->
+            </div>
+          </div>
+
+          <!-- Blog Section -->
+          <div id="blog-section" class="section hidden">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-xl font-bold">Blog Posts</h2>
+              <button
+                onclick="openAddBlogModal()"
+                class="bg-white text-black px-4 py-2 rounded hover:bg-gray-100"
+              >
+                Add Blog Post
+              </button>
+            </div>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              id="blog-grid"
+            >
+              <!-- Blog posts will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Project Modal -->
+    <div
+      id="addProjectModal"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center"
+    >
+      <div class="bg-[#242424] p-6 rounded-lg w-full max-w-md">
+        <h3 class="text-xl font-bold mb-4">Add New Project</h3>
+        <form id="addProjectForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-2">Project Name</label>
+            <input
+              type="text"
+              name="name"
+              required
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Location</label>
+            <input
+              type="text"
+              name="location"
+              required
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Area (sq ft)</label>
+            <input
+              type="number"
+              name="area"
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Client</label>
+            <input
+              type="text"
+              name="client"
+              required
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Image</label>
+            <button
+              type="button"
+              id="uploadProjectImage"
+              class="w-full px-4 py-2 rounded border border-gray-800 hover:bg-[#1a1a1a]"
+            >
+              Upload Image
+            </button>
+          </div>
+          <div class="flex justify-end space-x-4 mt-6">
+            <button
+              type="button"
+              onclick="closeAddProjectModal()"
+              class="px-4 py-2 rounded border border-gray-800 hover:bg-[#1a1a1a]"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="px-4 py-2 rounded bg-white text-black hover:bg-gray-100"
+            >
+              Save Project
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Add Gallery Modal -->
+    <div
+      id="addGalleryModal"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center"
+    >
+      <div class="bg-[#242424] p-6 rounded-lg w-full max-w-md">
+        <h3 class="text-xl font-bold mb-4">Add Gallery Item</h3>
+        <form id="addGalleryForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-2">Title</label>
+            <input
+              type="text"
+              name="title"
+              required
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Location</label>
+            <input
+              type="text"
+              name="location"
+              required
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Project Type</label>
+            <select
+              name="project_type"
+              required
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            >
+              <option value="Residential Project">Residential Project</option>
+              <option value="Commercial Project">Commercial Project</option>
+              <option value="Public Project">Public Project</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Image</label>
+            <button
+              type="button"
+              id="uploadGalleryImage"
+              class="w-full px-4 py-2 rounded border border-gray-800 hover:bg-[#1a1a1a]"
+            >
+              Upload Image
+            </button>
+          </div>
+          <div class="flex justify-end space-x-4 mt-6">
+            <button
+              type="button"
+              onclick="closeAddGalleryModal()"
+              class="px-4 py-2 rounded border border-gray-800 hover:bg-[#1a1a1a]"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="px-4 py-2 rounded bg-white text-black hover:bg-gray-100"
+            >
+              Save Item
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Add Client Modal -->
+    <div
+      id="addClientModal"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center"
+    >
+      <div class="bg-[#242424] p-6 rounded-lg w-full max-w-md">
+        <h3 class="text-xl font-bold mb-4">Add Client</h3>
+        <form id="addClientForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-2">Client Name</label>
+            <input
+              type="text"
+              name="name"
+              required
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Category</label>
+            <select
+              name="category"
+              required
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            >
+              <option value="Residential">Residential</option>
+              <option value="Commercial">Commercial</option>
+              <option value="Industrial">Industrial</option>
+              <option value="Institutional">Institutional</option>
+              <option value="Hospitality">Hospitality</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Logo/Image</label>
+            <button
+              type="button"
+              id="uploadClientImage"
+              class="w-full px-4 py-2 rounded border border-gray-800 hover:bg-[#1a1a1a]"
+            >
+              Upload Image
+            </button>
+          </div>
+          <div class="flex justify-end space-x-4 mt-6">
+            <button
+              type="button"
+              onclick="closeAddClientModal()"
+              class="px-4 py-2 rounded border border-gray-800 hover:bg-[#1a1a1a]"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="px-4 py-2 rounded bg-white text-black hover:bg-gray-100"
+            >
+              Save Client
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Add Blog Modal -->
+    <div
+      id="addBlogModal"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center overflow-y-auto py-8"
+    >
+      <div class="bg-[#242424] p-6 rounded-lg w-full max-w-md mx-auto relative">
+        <h3 class="text-xl font-bold mb-4">Add Blog Post</h3>
+        <form id="addBlogForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-2">Title</label>
+            <input
+              type="text"
+              name="title"
+              required
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Description</label>
+            <textarea
+              name="description"
+              required
+              rows="3"
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            ></textarea>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Full Content</label>
+            <textarea
+              name="content"
+              required
+              rows="6"
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+              placeholder="Write your full blog post content here..."
+            ></textarea>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Publish Date</label>
+            <input
+              type="date"
+              name="publish_date"
+              required
+              class="w-full px-4 py-2 rounded bg-[#1a1a1a] border border-gray-800"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Image</label>
+            <button
+              type="button"
+              id="uploadBlogImage"
+              class="w-full px-4 py-2 rounded border border-gray-800 hover:bg-[#1a1a1a]"
+            >
+              Upload Image
+            </button>
+          </div>
+          <div class="flex justify-end space-x-4 mt-6">
+            <button
+              type="button"
+              onclick="closeAddBlogModal()"
+              class="px-4 py-2 rounded border border-gray-800 hover:bg-[#1a1a1a]"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="px-4 py-2 rounded bg-white text-black hover:bg-gray-100"
+            >
+              Save Post
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Initialize Supabase client
+      const { createClient } = supabase;
+      const supabaseClient = createClient(
+        "https://olkcohyhgnsdwihrhtpt.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9sa2NvaHloZ25zZHdpaHJodHB0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAyOTMzMTgsImV4cCI6MjA1NTg2OTMxOH0.QJVOWw3gwsapcWwbeIHncNrJbb0obbqoM3o97Fc955Q"
+      );
+
+      // Authentication check on page load
+      async function checkInitialAuth() {
+        const {
+          data: { session },
+          error,
+        } = await supabaseClient.auth.getSession();
+        if (!session) {
+          window.location.href = "login.html";
+          return false;
+        }
+        return true;
+      }
+
+      // Check auth immediately when page loads
+      (async function () {
+        if (!(await checkInitialAuth())) {
+          return; // Stop execution if not authenticated
+        }
+      })();
+
+      // Set up auth state change listener
+      supabaseClient.auth.onAuthStateChange((event, session) => {
+        if (event === "SIGNED_OUT" || !session) {
+          window.location.href = "login.html";
+        }
+      });
+
+      // Initialize Cloudinary widget
+      let uploadedImageUrl = "";
+
+      const cloudinaryWidget = cloudinary.createUploadWidget(
+        {
+          cloudName: "dwls6d8zr",
+          uploadPreset: "manjaly",
+          sources: ["local", "url", "camera"],
+          multiple: false,
+        },
+        function (error, result) {
+          if (!error && result && result.event === "success") {
+            uploadedImageUrl = result.info.secure_url;
+            // Update the upload button text
+            const activeModal = document.querySelector(".fixed.flex"); // Get currently open modal
+            const uploadButton = activeModal.querySelector(
+              'button[id^="upload"]'
+            );
+            uploadButton.textContent = "Image Uploaded ✓";
+          }
+        }
+      );
+
+      // Add click handlers for all upload buttons
+      document
+        .getElementById("uploadProjectImage")
+        .addEventListener("click", () => cloudinaryWidget.open());
+      document
+        .getElementById("uploadGalleryImage")
+        .addEventListener("click", () => cloudinaryWidget.open());
+      document
+        .getElementById("uploadClientImage")
+        .addEventListener("click", () => cloudinaryWidget.open());
+      document
+        .getElementById("uploadBlogImage")
+        .addEventListener("click", () => cloudinaryWidget.open());
+
+      // Load projects on page load
+      async function loadProjects() {
+        try {
+          const { data, error } = await supabaseClient
+            .from("projects")
+            .select("*")
+            .order("created_at", { ascending: false });
+
+          if (error) throw error;
+
+          console.log("Loaded projects:", data); // Debug log
+
+          const projectsGrid = document.getElementById("projects-grid");
+          if (!data || data.length === 0) {
+            projectsGrid.innerHTML =
+              '<p class="text-gray-400 col-span-3 text-center">No projects found</p>';
+            return;
+          }
+
+          projectsGrid.innerHTML = data
+            .map(
+              (project) => `
+                    <div class="bg-[#242424] rounded-lg overflow-hidden border border-gray-800">
+                        <div class="aspect-video">
+                            <img src="${project.image_url}" alt="${project.name}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-base sm:text-lg">${project.name}</h3>
+                            <p class="text-gray-400 text-sm sm:text-base">${project.location}</p>
+                            <p class="text-gray-400 text-sm sm:text-base">${project.area} sq ft</p>
+                            <p class="text-gray-400 text-sm sm:text-base">Client: ${project.client}</p>
+                            <div class="flex space-x-2 mt-4">
+                                <button onclick="editProject(${project.id})" 
+                                        class="px-2 py-1 sm:px-3 sm:py-1.5 text-sm rounded border border-gray-800 hover:bg-[#1a1a1a]">
+                                    Edit
+                                </button>
+                                <button onclick="deleteProject(${project.id})" 
+                                        class="px-2 py-1 sm:px-3 sm:py-1.5 text-sm rounded border border-red-800 text-red-500 hover:bg-red-500/10">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            )
+            .join("");
+        } catch (error) {
+          console.error("Error loading projects:", error);
+          document.getElementById("projects-grid").innerHTML =
+            '<p class="text-red-500 col-span-3 text-center">Error loading projects</p>';
+        }
+      }
+
+      // Handle logout
+      document
+        .getElementById("logoutBtn")
+        .addEventListener("click", async () => {
+          try {
+            const { error } = await supabaseClient.auth.signOut();
+            if (error) throw error;
+            window.location.href = "login.html";
+          } catch (error) {
+            console.error("Error signing out:", error);
+            alert("Error signing out: " + error.message);
+          }
+        });
+
+      // Load initial data
+      loadProjects();
+
+      // Handle section switching
+      const navLinks = document.querySelectorAll("nav a");
+      const sections = document.querySelectorAll(".section");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", async (e) => {
+          e.preventDefault();
+
+          // Update active link styles in both desktop and mobile menus
+          document
+            .querySelectorAll("nav a")
+            .forEach((l) => l.classList.replace("text-white", "text-gray-400"));
+          document
+            .querySelectorAll(`nav a[data-section="${link.dataset.section}"]`)
+            .forEach((l) => l.classList.replace("text-gray-400", "text-white"));
+
+          // Close mobile sidebar if open
+          if (window.innerWidth < 768) {
+            closeSidebarMenu();
+          }
+
+          // Show selected section, hide others
+          const sectionId = link.dataset.section + "-section";
+          sections.forEach((section) => {
+            section.classList.toggle("hidden", section.id !== sectionId);
+          });
+
+          // Load section data
+          switch (link.dataset.section) {
+            case "projects":
+              loadProjects();
+              break;
+            case "gallery":
+              loadGallery();
+              break;
+            case "clients":
+              loadClients();
+              break;
+            case "blog":
+              await loadBlog();
+              break;
+          }
+        });
+      });
+
+      // Handle modal operations
+      function openAddProjectModal() {
+        const modal = document.getElementById("addProjectModal");
+        const form = document.getElementById("addProjectForm");
+
+        // Only reset if it's a new project (no projectId in dataset)
+        if (!form.dataset.projectId) {
+          form.reset();
+          uploadedImageUrl = "";
+          document.getElementById("uploadProjectImage").textContent =
+            "Upload Image";
+        }
+
+        modal.classList.replace("hidden", "flex");
+      }
+
+      function closeAddProjectModal() {
+        document
+          .getElementById("addProjectModal")
+          .classList.replace("flex", "hidden");
+        // Reset the form and upload state
+        document.getElementById("addProjectForm").reset();
+        document.getElementById("uploadProjectImage").textContent =
+          "Upload Image";
+        uploadedImageUrl = "";
+      }
+
+      // Update your form submission
+      document
+        .getElementById("addProjectForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          if (!(await checkInitialAuth())) return; // Check auth before submission
+
+          if (!uploadedImageUrl) {
+            alert("Please upload an image first");
+            return;
+          }
+
+          const formData = new FormData(e.target);
+          const projectData = {
+            name: formData.get("name"),
+            location: formData.get("location"),
+            area: Number(formData.get("area")),
+            client: formData.get("client"),
+            image_url: uploadedImageUrl,
+            status: "completed",
+            completion_date: new Date().toISOString(),
+          };
+
+          console.log("Saving project data:", projectData); // Debug log
+
+          try {
+            const projectId = e.target.dataset.projectId;
+            let error;
+
+            if (projectId) {
+              // Update existing project
+              const { error: updateError } = await supabaseClient
+                .from("projects")
+                .update(projectData)
+                .eq("id", projectId);
+              error = updateError;
+            } else {
+              // Insert new project
+              const { error: insertError } = await supabaseClient
+                .from("projects")
+                .insert([projectData]);
+              error = insertError;
+            }
+
+            if (error) throw error;
+
+            closeAddProjectModal();
+            document.getElementById("uploadProjectImage").textContent =
+              "Upload Image";
+            uploadedImageUrl = "";
+            e.target.removeAttribute("data-project-id"); // Clear the project ID
+            await loadProjects();
+
+            alert(
+              projectId
+                ? "Project updated successfully!"
+                : "Project added successfully!"
+            );
+          } catch (error) {
+            console.error("Error saving project:", error);
+            alert("Error saving project: " + error.message);
+          }
+        });
+
+      // Delete project function
+      async function deleteProject(id) {
+        if (!confirm("Are you sure you want to delete this project?")) return;
+
+        try {
+          const { error } = await supabaseClient
+            .from("projects")
+            .delete()
+            .eq("id", id);
+
+          if (error) throw error;
+
+          // Reload projects after deletion
+          loadProjects();
+        } catch (error) {
+          console.error("Error deleting project:", error);
+          alert("Error deleting project: " + error.message);
+        }
+      }
+
+      // Load gallery items
+      async function loadGallery() {
+        try {
+          const { data, error } = await supabaseClient
+            .from("gallery")
+            .select("*");
+
+          if (error) throw error;
+
+          const galleryGrid = document.getElementById("gallery-grid");
+          galleryGrid.innerHTML = data
+            .map(
+              (item) => `
+                    <div class="bg-[#242424] rounded-lg overflow-hidden border border-gray-800">
+                        <img src="${item.image_url}" alt="${item.title}" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold">${item.title}</h3>
+                            <p class="text-gray-400">${item.location}</p>
+                            <p class="text-gray-400">${item.project_type}</p>
+
+                            <div class="flex space-x-2 mt-4">
+                                <button onclick="editGalleryItem(${item.id})" 
+                                        class="px-3 py-1 rounded border border-gray-800 hover:bg-[#1a1a1a]">
+                                    Edit
+                                </button>
+                                <button onclick="deleteGalleryItem(${item.id})" 
+                                        class="px-3 py-1 rounded border border-red-800 text-red-500 hover:bg-red-500/10">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            )
+            .join("");
+        } catch (error) {
+          console.error("Error loading gallery:", error);
+        }
+      }
+
+      // Load clients
+      async function loadClients() {
+        try {
+          const { data, error } = await supabaseClient
+            .from("clients")
+            .select("*");
+
+          if (error) throw error;
+
+          const clientsGrid = document.getElementById("clients-grid");
+          clientsGrid.innerHTML = data
+            .map(
+              (client) => `
+                    <div class="bg-[#242424] rounded-lg overflow-hidden border border-gray-800">
+                        <img src="${client.image_url}" alt="${client.name}" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold">${client.name}</h3>
+                            <p class="text-gray-400">${client.category}</p>
+                            <div class="flex space-x-2 mt-4">
+                                <button onclick="editClient(${client.id})" 
+                                        class="px-3 py-1 rounded border border-gray-800 hover:bg-[#1a1a1a]">
+                                    Edit
+                                </button>
+                                <button onclick="deleteClient(${client.id})" 
+                                        class="px-3 py-1 rounded border border-red-800 text-red-500 hover:bg-red-500/10">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            )
+            .join("");
+        } catch (error) {
+          console.error("Error loading clients:", error);
+        }
+      }
+
+      // Edit Project Functions
+      async function editProject(id) {
+        try {
+          const { data, error } = await supabaseClient
+            .from("projects")
+            .select("*")
+            .eq("id", id)
+            .single();
+
+          if (error) throw error;
+
+          const form = document.getElementById("addProjectForm");
+          form.name.value = data.name;
+          form.location.value = data.location;
+          form.area.value = data.area;
+          form.client.value = data.client;
+          uploadedImageUrl = data.image_url;
+          document.getElementById("uploadProjectImage").textContent =
+            "Image Uploaded ✓";
+
+          // Add project ID to form for update
+          form.dataset.projectId = id;
+
+          // Show modal
+          openAddProjectModal();
+        } catch (error) {
+          console.error("Error loading project:", error);
+          alert("Error loading project: " + error.message);
+        }
+      }
+
+      // Similar functions for Gallery
+      async function editGalleryItem(id) {
+        try {
+          const { data, error } = await supabaseClient
+            .from("gallery")
+            .select("*")
+            .eq("id", id)
+            .single();
+
+          if (error) throw error;
+
+          const form = document.getElementById("addGalleryForm");
+          form.title.value = data.title;
+          form.location.value = data.location || "";
+          form.project_type.value = data.project_type;
+          uploadedImageUrl = data.image_url;
+          document.getElementById("uploadGalleryImage").textContent =
+            "Image Uploaded ✓";
+
+          form.dataset.galleryId = id;
+          openAddGalleryModal();
+        } catch (error) {
+          console.error("Error loading gallery item:", error);
+          alert("Error loading gallery item: " + error.message);
+        }
+      }
+
+      // Similar functions for Clients
+      async function editClient(id) {
+        try {
+          const { data, error } = await supabaseClient
+            .from("clients")
+            .select("*")
+            .eq("id", id)
+            .single();
+
+          if (error) throw error;
+
+          const form = document.getElementById("addClientForm");
+          form.name.value = data.name;
+          form.category.value = data.category;
+          uploadedImageUrl = data.image_url;
+          document.getElementById("uploadClientImage").textContent =
+            "Image Uploaded ✓";
+
+          form.dataset.clientId = id;
+          openAddClientModal();
+        } catch (error) {
+          console.error("Error loading client:", error);
+          alert("Error loading client: " + error.message);
+        }
+      }
+
+      // Gallery Modal Operations
+      function openAddGalleryModal() {
+        const modal = document.getElementById("addGalleryModal");
+        const form = document.getElementById("addGalleryForm");
+
+        // Only reset if it's a new item (no galleryId in dataset)
+        if (!form.dataset.galleryId) {
+          form.reset();
+          uploadedImageUrl = "";
+          document.getElementById("uploadGalleryImage").textContent =
+            "Upload Image";
+        }
+
+        modal.classList.replace("hidden", "flex");
+      }
+
+      function closeAddGalleryModal() {
+        document
+          .getElementById("addGalleryModal")
+          .classList.replace("flex", "hidden");
+        document.getElementById("addGalleryForm").reset();
+        document.getElementById("uploadGalleryImage").textContent =
+          "Upload Image";
+        uploadedImageUrl = "";
+      }
+
+      // Delete gallery item function
+      async function deleteGalleryItem(id) {
+        if (!confirm("Are you sure you want to delete this gallery item?"))
+          return;
+
+        try {
+          const { error } = await supabaseClient
+            .from("gallery")
+            .delete()
+            .eq("id", id);
+
+          if (error) throw error;
+
+          // Reload gallery after deletion
+          loadGallery();
+        } catch (error) {
+          console.error("Error deleting gallery item:", error);
+          alert("Error deleting gallery item: " + error.message);
+        }
+      }
+
+      // Add form handler for Gallery
+      document
+        .getElementById("addGalleryForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          if (!(await checkInitialAuth())) return;
+
+          if (!uploadedImageUrl) {
+            alert("Please upload an image first");
+            return;
+          }
+
+          const formData = new FormData(e.target);
+          const galleryData = {
+            title: formData.get("title"),
+            location: formData.get("location"),
+            project_type: formData.get("project_type"),
+            image_url: uploadedImageUrl,
+          };
+
+          try {
+            const galleryId = e.target.dataset.galleryId;
+            let error;
+
+            if (galleryId) {
+              // Update existing gallery item
+              const { error: updateError } = await supabaseClient
+                .from("gallery")
+                .update(galleryData)
+                .eq("id", galleryId);
+              error = updateError;
+            } else {
+              // Insert new gallery item
+              const { error: insertError } = await supabaseClient
+                .from("gallery")
+                .insert([galleryData]);
+              error = insertError;
+            }
+
+            if (error) throw error;
+
+            closeAddGalleryModal();
+            document.getElementById("uploadGalleryImage").textContent =
+              "Upload Image";
+            uploadedImageUrl = "";
+            e.target.removeAttribute("data-gallery-id");
+            await loadGallery();
+
+            alert(
+              galleryId
+                ? "Gallery item updated successfully!"
+                : "Gallery item added successfully!"
+            );
+          } catch (error) {
+            console.error("Error saving gallery item:", error);
+            alert("Error saving gallery item: " + error.message);
+          }
+        });
+
+      // Add Client Modal Operations
+      function openAddClientModal() {
+        const modal = document.getElementById("addClientModal");
+        const form = document.getElementById("addClientForm");
+
+        // Only reset if it's a new client (no clientId in dataset)
+        if (!form.dataset.clientId) {
+          form.reset();
+          uploadedImageUrl = "";
+          document.getElementById("uploadClientImage").textContent =
+            "Upload Image";
+        }
+
+        modal.classList.replace("hidden", "flex");
+      }
+
+      function closeAddClientModal() {
+        document
+          .getElementById("addClientModal")
+          .classList.replace("flex", "hidden");
+        document.getElementById("addClientForm").reset();
+        document.getElementById("uploadClientImage").textContent =
+          "Upload Image";
+        uploadedImageUrl = "";
+      }
+
+      // Delete client function
+      async function deleteClient(id) {
+        if (!confirm("Are you sure you want to delete this client?")) return;
+
+        try {
+          const { error } = await supabaseClient
+            .from("clients")
+            .delete()
+            .eq("id", id);
+
+          if (error) throw error;
+
+          // Reload clients after deletion
+          loadClients();
+        } catch (error) {
+          console.error("Error deleting client:", error);
+          alert("Error deleting client: " + error.message);
+        }
+      }
+
+      // Add form handler for Client
+      document
+        .getElementById("addClientForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          if (!(await checkInitialAuth())) return;
+
+          if (!uploadedImageUrl) {
+            alert("Please upload an image first");
+            return;
+          }
+
+          const formData = new FormData(e.target);
+          const clientData = {
+            name: formData.get("name"),
+            category: formData.get("category"),
+            image_url: uploadedImageUrl,
+          };
+
+          try {
+            const clientId = e.target.dataset.clientId;
+            let error;
+
+            if (clientId) {
+              const { error: updateError } = await supabaseClient
+                .from("clients")
+                .update(clientData)
+                .eq("id", clientId);
+              error = updateError;
+            } else {
+              const { error: insertError } = await supabaseClient
+                .from("clients")
+                .insert([clientData]);
+              error = insertError;
+            }
+
+            if (error) throw error;
+
+            closeAddClientModal();
+            document.getElementById("uploadClientImage").textContent =
+              "Upload Image";
+            uploadedImageUrl = "";
+            e.target.removeAttribute("data-client-id");
+            await loadClients();
+
+            alert(
+              clientId
+                ? "Client updated successfully!"
+                : "Client added successfully!"
+            );
+          } catch (error) {
+            console.error("Error saving client:", error);
+            alert("Error saving client: " + error.message);
+          }
+        });
+
+      // Mobile sidebar functionality
+      const sidebarToggle = document.getElementById("sidebar-toggle");
+      const mobileSidebar = document.getElementById("mobile-sidebar");
+      const closeSidebar = document.getElementById("close-sidebar");
+      const sidebarContent = mobileSidebar.querySelector("div");
+
+      function openSidebar() {
+        mobileSidebar.classList.remove("hidden");
+        setTimeout(() => {
+          sidebarContent.classList.remove("-translate-x-full");
+        }, 10);
+      }
+
+      function closeSidebarMenu() {
+        sidebarContent.classList.add("-translate-x-full");
+        setTimeout(() => {
+          mobileSidebar.classList.add("hidden");
+        }, 300);
+      }
+
+      sidebarToggle.addEventListener("click", openSidebar);
+      closeSidebar.addEventListener("click", closeSidebarMenu);
+
+      // Close sidebar when clicking outside
+      mobileSidebar.addEventListener("click", (e) => {
+        if (e.target === mobileSidebar) {
+          closeSidebarMenu();
+        }
+      });
+
+      async function checkAuth() {
+        const {
+          data: { session },
+          error,
+        } = await supabaseClient.auth.getSession();
+        if (!session) {
+          alert("Your session has expired. Please login again.");
+          window.location.href = "login.html";
+          return false;
+        }
+        return true;
+      }
+
+      // Blog Modal Operations
+      function openAddBlogModal() {
+        const modal = document.getElementById("addBlogModal");
+        const form = document.getElementById("addBlogForm");
+
+        // Only reset if it's a new blog post (no blogId in dataset)
+        if (!form.dataset.blogId) {
+          form.reset();
+          uploadedImageUrl = "";
+          document.getElementById("uploadBlogImage").textContent =
+            "Upload Image";
+        }
+
+        modal.classList.replace("hidden", "flex");
+      }
+
+      function closeAddBlogModal() {
+        document
+          .getElementById("addBlogModal")
+          .classList.replace("flex", "hidden");
+        document.getElementById("addBlogForm").reset();
+        document.getElementById("uploadBlogImage").textContent = "Upload Image";
+        uploadedImageUrl = "";
+      }
+
+      // Load blog posts
+      async function loadBlog() {
+        try {
+          console.log("Starting to load blog posts...");
+          const { data, error } = await supabaseClient
+            .from("blog")
+            .select("*")
+            .order("created_at", { ascending: false });
+
+          console.log("Raw blog data:", data);
+          console.log("Error if any:", error);
+
+          if (error) throw error;
+
+          const blogGrid = document.getElementById("blog-grid");
+          console.log("Blog grid element:", blogGrid);
+
+          if (!blogGrid) {
+            console.error("Blog grid element not found");
+            return;
+          }
+
+          if (!data || data.length === 0) {
+            console.log("No blog posts found");
+            blogGrid.innerHTML =
+              '<p class="text-gray-400 col-span-3 text-center">No blog posts found</p>';
+            return;
+          }
+
+          blogGrid.innerHTML = data
+            .map(
+              (post) => `
+                    <div class="bg-[#242424] rounded-lg overflow-hidden border border-gray-800">
+                        <div class="aspect-video">
+                            <img src="${post.image_url}" alt="${
+                post.title
+              }" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <span class="text-sm text-gray-400">${new Date(
+                              post.publish_date
+                            ).toLocaleDateString()}</span>
+                            <h3 class="font-bold text-lg mt-2">${
+                              post.title
+                            }</h3>
+                            <p class="text-gray-400 text-sm mt-2 line-clamp-2">${
+                              post.description
+                            }</p>
+                            <div class="flex space-x-2 mt-4">
+                                <button onclick="editBlogPost(${post.id})" 
+                                        class="px-3 py-1.5 text-sm rounded border border-gray-800 hover:bg-[#1a1a1a]">
+                                    Edit
+                                </button>
+                                <button onclick="deleteBlogPost(${post.id})" 
+                                        class="px-3 py-1.5 text-sm rounded border border-red-800 text-red-500 hover:bg-red-500/10">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            )
+            .join("");
+
+          console.log("Blog posts rendered successfully");
+        } catch (error) {
+          console.error("Error loading blog posts:", error);
+          const blogGrid = document.getElementById("blog-grid");
+          if (blogGrid) {
+            blogGrid.innerHTML =
+              '<p class="text-red-500 col-span-3 text-center">Error loading blog posts</p>';
+          }
+        }
+      }
+
+      // Edit blog post
+      async function editBlogPost(id) {
+        try {
+          const { data, error } = await supabaseClient
+            .from("blog")
+            .select("*")
+            .eq("id", id)
+            .single();
+
+          if (error) throw error;
+
+          const form = document.getElementById("addBlogForm");
+          form.title.value = data.title;
+          form.description.value = data.description;
+          form.content.value = data.content;
+          form.publish_date.value = data.publish_date;
+          uploadedImageUrl = data.image_url;
+          document.getElementById("uploadBlogImage").textContent =
+            "Image Uploaded ✓";
+
+          form.dataset.blogId = id;
+          openAddBlogModal();
+        } catch (error) {
+          console.error("Error loading blog post:", error);
+          alert("Error loading blog post: " + error.message);
+        }
+      }
+
+      // Delete blog post
+      async function deleteBlogPost(id) {
+        if (!confirm("Are you sure you want to delete this blog post?")) return;
+
+        try {
+          const { error } = await supabaseClient
+            .from("blog")
+            .delete()
+            .eq("id", id);
+
+          if (error) throw error;
+          loadBlog();
+        } catch (error) {
+          console.error("Error deleting blog post:", error);
+          alert("Error deleting blog post: " + error.message);
+        }
+      }
+
+      // Add form handler for Blog
+      document
+        .getElementById("addBlogForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          // Check authentication status
+          const {
+            data: { session },
+          } = await supabaseClient.auth.getSession();
+          console.log("Current session:", session);
+
+          if (!(await checkInitialAuth())) return;
+
+          if (!uploadedImageUrl) {
+            alert("Please upload an image first");
+            return;
+          }
+
+          const formData = new FormData(e.target);
+          const blogData = {
+            title: formData.get("title"),
+            description: formData.get("description"),
+            content: formData.get("content"),
+            publish_date: formData.get("publish_date"),
+            image_url: uploadedImageUrl,
+          };
+
+          console.log("Saving blog data:", blogData);
+
+          try {
+            const blogId = e.target.dataset.blogId;
+            let error;
+
+            if (blogId) {
+              const { error: updateError } = await supabaseClient
+                .from("blog")
+                .update(blogData)
+                .eq("id", blogId);
+              error = updateError;
+            } else {
+              const { data, error: insertError } = await supabaseClient
+                .from("blog")
+                .insert([blogData])
+                .select("*");
+
+              console.log("Insert response:", { data, error: insertError });
+              error = insertError;
+            }
+
+            if (error) throw error;
+
+            closeAddBlogModal();
+            document.getElementById("uploadBlogImage").textContent =
+              "Upload Image";
+            uploadedImageUrl = "";
+            e.target.removeAttribute("data-blog-id");
+            await loadBlog();
+
+            alert(
+              blogId
+                ? "Blog post updated successfully!"
+                : "Blog post added successfully!"
+            );
+          } catch (error) {
+            console.error("Error saving blog post:", error);
+            alert("Error saving blog post: " + error.message);
+          }
+        });
+    </script>
+  </body>
+</html>

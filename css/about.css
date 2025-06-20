@@ -1,0 +1,203 @@
+/* About page specific styles */
+body {
+  font-family: "Space Grotesk", sans-serif;
+  background-color: #deefd4;
+  color: black;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.nav-link {
+  color: #e8f2e2;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #cce4bc;
+}
+
+.nav-link.active {
+  color: #cce4bc;
+}
+
+.bg-gradient-1 {
+  background: linear-gradient(135deg, #c3dcb5 0%, #add299 100%);
+}
+
+.bg-gradient-2 {
+  background: linear-gradient(135deg, #e8f2e2 0%, #c3dcb5 100%);
+}
+
+.bg-pattern-1 {
+  background-color: #f5f8f3;
+  background-image: radial-gradient(#c3dcb5 0.5px, transparent 0.5px);
+  background-size: 10px 10px;
+}
+
+.hover-card {
+  transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-dot {
+  background: #add299;
+  border: 3px solid #c3dcb5;
+  z-index: 1;
+}
+
+/* Timeline vertical line styles */
+.relative > .absolute {
+  z-index: 0;
+}
+
+/* Timeline items */
+.flex.flex-col.md\:flex-row {
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.partner-card {
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.partner-card:hover {
+  background: #f5f8f3;
+  transform: scale(1.02);
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+  width: 24px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: 0.25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+  top: 9px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 18px;
+}
+
+/* Animated State */
+.hamburger.active span:nth-child(1) {
+  top: 9px;
+  transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  top: 9px;
+  transform: rotate(-45deg);
+}
+
+/* Prevent scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+section {
+  overflow: visible;
+  max-width: 100vw;
+}
+
+.grid {
+  overflow: visible;
+  max-width: 100%;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.testimonial-slider {
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.testimonial-slide {
+  pointer-events: none;
+}
+
+.testimonial-slide video,
+.testimonial-slide button {
+  pointer-events: auto;
+}
+
+/* YouTube placeholder styling */
+.youtube-placeholder {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.youtube-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.youtube-placeholder .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 0, 0, 0.9);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.youtube-placeholder .play-button:hover {
+  background: rgba(255, 0, 0, 1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Font is loaded via Google Fonts in HTML head */
