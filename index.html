@@ -1429,7 +1429,7 @@
 
 
 
-   <script>
+  <script>
   const form = document.getElementById("contactForm");
   const messageBox = document.getElementById("formMessage");
   const submitBtn = document.getElementById("submitBtn");
@@ -1437,11 +1437,9 @@
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    // ✅ Step 1: Show "Sending..."
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = "<span>Sending...</span>";
-    }
+    // Show "Sending..." and disable button
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = "<span>Sending...</span>";
 
     const formData = new FormData(form);
 
@@ -1454,35 +1452,34 @@
         }
       );
 
-      const text = await response.text();
+      const result = await response.text();
 
-      if (response.ok && text.includes("Success")) {
-        messageBox.textContent = "Message sent successfully!";
+      if (response.ok && result.includes("Success")) {
+        // Show success message
         form.reset();
-
-        if (submitBtn) {
-          submitBtn.innerHTML = "<span>Sent!</span>";
-        }
-      } else {
-        messageBox.textContent = "Something went wrong: " + text;
-        if (submitBtn) {
-          submitBtn.innerHTML = "<span>Send Message</span>";
-        }
-      }
-
-    } catch (error) {
-      // You’re treating this as success based on your setup
-      messageBox.textContent = "Message sent successfully!";
-      if (submitBtn) {
+        messageBox.textContent = "Message sent successfully!";
         submitBtn.innerHTML = "<span>Sent!</span>";
+      } else {
+        messageBox.textContent = "Error: " + result;
+        submitBtn.innerHTML = "<span>Send Message</span>";
       }
+    } catch (error) {
+      // If network fails, show fallback message
+      messageBox.textContent = "Network error. Please try again.";
+      submitBtn.innerHTML = "<span>Send Message</span>";
     }
 
     messageBox.classList.remove("hidden");
 
-    // ✅ Step 2: Reset button and hide message after 5s
+    // Reset everything after 5 seconds
     setTimeout(() => {
-      if (submi
+      messageBox.classList.add("hidden");
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = "<span>Send Message</span>";
+    }, 5000);
+  });
+</script>
+
 
     <!-- Optimized JavaScript for Performance -->
     <script>
