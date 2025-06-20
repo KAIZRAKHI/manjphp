@@ -1425,30 +1425,46 @@
       })();
     </script> -->
     <!--End of Tawk.to Script -->
-    <script>
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.getElementById("contactForm");
 
-  const form = e.target;
-  const formData = new FormData(form);
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-  fetch("https://brandcrafters.byethost14.com/handler.php", {
-    method: "POST",
-    body: formData,
-  })
-  .then(response => {
-    if (response.ok) {
-      window.location.href = "thankyou.html";
-    } else {
-      alert("Form submission failed.");
+        const submitBtn = document.getElementById("submitBtn");
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "<span>Sending...</span>";
+
+        const formData = new FormData(contactForm);
+
+        fetch("https://brandcrafters.byethost14.com/handler.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.text())
+          .then((data) => {
+            console.log("Response:", data);
+            if (data.includes("success")) {
+              window.location.href = "thankyou.html";
+            } else {
+              alert(data);
+            }
+          })
+          .catch((err) => {
+            alert("Something went wrong.");
+            console.error(err);
+          })
+          .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "<span>Send Message</span>";
+          });
+      });
     }
-  })
-  .catch(error => {
-    console.error("Error:", error);
-    alert("Something went wrong.");
   });
-});
 </script>
+
 
 
     <!-- Optimized JavaScript for Performance -->
