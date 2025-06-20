@@ -1429,46 +1429,61 @@
 
 
 
-    <script>
-      const form = document.getElementById("contactForm");
-      const messageBox = document.getElementById("formMessage");
+   <script>
+  const form = document.getElementById("contactForm");
+  const messageBox = document.getElementById("formMessage");
+  const submitBtn = document.getElementById("submitBtn");
 
-      form.addEventListener("submit", async function (e) {
-        e.preventDefault(); // Stop default page reload
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-        const formData = new FormData(form);
+    // ✅ Step 1: Show "Sending..."
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = "<span>Sending...</span>";
+    }
 
-        try {
-          const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbz40DONDIF3us8QgpykDj6MVTft7YYMizN_OcsaSc6_wAaCqM2DRKFonAPgMEWMKh_J/exec",
-            {
-              method: "POST",
-              body: formData,
-            }
-          );
+    const formData = new FormData(form);
 
-          if (response.ok) {
-            const text = await response.text();
-
-            if (text.includes("Success")) {
-              messageBox.textContent = "Message sent successfully!";
-              messageBox.classList.remove("hidden");
-              form.reset();
-            } else {
-              messageBox.textContent = "Something went wrong: " + text;
-              messageBox.classList.remove("hidden");
-            }
-          } else {
-            messageBox.textContent =
-              "Failed to submit. Server returned an error.";
-            messageBox.classList.remove("hidden");
-          }
-        } catch (error) {
-          messageBox.textContent = "Message Send Successfully";
-          messageBox.classList.remove("hidden");
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbz40DONDIF3us8QgpykDj6MVTft7YYMizN_OcsaSc6_wAaCqM2DRKFonAPgMEWMKh_J/exec",
+        {
+          method: "POST",
+          body: formData,
         }
-      });
-    </script>
+      );
+
+      const text = await response.text();
+
+      if (response.ok && text.includes("Success")) {
+        messageBox.textContent = "Message sent successfully!";
+        form.reset();
+
+        if (submitBtn) {
+          submitBtn.innerHTML = "<span>Sent!</span>";
+        }
+      } else {
+        messageBox.textContent = "Something went wrong: " + text;
+        if (submitBtn) {
+          submitBtn.innerHTML = "<span>Send Message</span>";
+        }
+      }
+
+    } catch (error) {
+      // You’re treating this as success based on your setup
+      messageBox.textContent = "Message sent successfully!";
+      if (submitBtn) {
+        submitBtn.innerHTML = "<span>Sent!</span>";
+      }
+    }
+
+    messageBox.classList.remove("hidden");
+
+    // ✅ Step 2: Reset button and hide message after 5s
+    setTimeout(() => {
+      if (submi
+
     <!-- Optimized JavaScript for Performance -->
     <script>
       // Optimized mobile menu with event delegation
