@@ -1141,10 +1141,7 @@
             <h3 class="text-2xl font-semibold mb-6 !text-[#cce4bc]">
               Send us a message
             </h3>
-            <form
-              id="contactForm"
-              class="space-y-6"
-            >
+            <form id="contactForm" class="space-y-6">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-medium mb-2 text-white"
@@ -1219,8 +1216,6 @@
                   placeholder="Your message here..."
                 ></textarea>
               </div>
-             <div id="formMessage" class="text-center text-green-500 font-medium hidden"></div>
-
               <button
                 type="submit"
                 id="submitBtn"
@@ -1228,9 +1223,11 @@
               >
                 <span>Send Message</span>
               </button>
-           <div id="formMessage" class="text-center font-medium hidden" style="color: #22c55e;"></div>
-
-
+              <div
+                id="formMessage"
+                class="text-center font-medium hidden"
+                style="color: #22c55e !important"
+              ></div>
             </form>
           </div>
         </div>
@@ -1430,59 +1427,56 @@
     </script> -->
     <!--End of Tawk.to Script -->
 
+    <script>
+      const form = document.getElementById("contactForm");
+      const messageBox = document.getElementById("formMessage");
+      const submitBtn = document.getElementById("submitBtn");
 
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-  <script>
-  const form = document.getElementById("contactForm");
-  const messageBox = document.getElementById("formMessage");
-  const submitBtn = document.getElementById("submitBtn");
+        // Show "Sending..." and disable button
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "<span>Sending...</span>";
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
+        const formData = new FormData(form);
 
-    // Show "Sending..." and disable button
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = "<span>Sending...</span>";
+        try {
+          const response = await fetch(
+            "https://script.google.com/macros/s/AKfycbz40DONDIF3us8QgpykDj6MVTft7YYMizN_OcsaSc6_wAaCqM2DRKFonAPgMEWMKh_J/exec",
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
 
-    const formData = new FormData(form);
+          const result = await response.text();
 
-    try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbz40DONDIF3us8QgpykDj6MVTft7YYMizN_OcsaSc6_wAaCqM2DRKFonAPgMEWMKh_J/exec",
-        {
-          method: "POST",
-          body: formData,
+          if (response.ok && result.includes("Success")) {
+            // Show success message
+            form.reset();
+            messageBox.textContent = "Message sent successfully!";
+            submitBtn.innerHTML = "<span>Sent!</span>";
+          } else {
+            messageBox.textContent = "Error: " + result;
+            submitBtn.innerHTML = "<span>Send Message</span>";
+          }
+        } catch (error) {
+          // If network fails, show fallback message
+          messageBox.textContent = "Message sent successfully!";
+          submitBtn.innerHTML = "<span>Send Message</span>";
         }
-      );
 
-      const result = await response.text();
+        messageBox.classList.remove("hidden");
 
-      if (response.ok && result.includes("Success")) {
-        // Show success message
-        form.reset();
-        messageBox.textContent = "Message sent successfully!";
-        submitBtn.innerHTML = "<span>Sent!</span>";
-      } else {
-        messageBox.textContent = "Error: " + result;
-        submitBtn.innerHTML = "<span>Send Message</span>";
-      }
-    } catch (error) {
-      // If network fails, show fallback message
-      messageBox.textContent = "Message sent successfully!";
-      submitBtn.innerHTML = "<span>Send Message</span>";
-    }
-
-    messageBox.classList.remove("hidden");
-
-    // Reset everything after 5 seconds
-    setTimeout(() => {
-      messageBox.classList.add("hidden");
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = "<span>Send Message</span>";
-    }, 5000);
-  });
-</script>
-
+        // Reset everything after 5 seconds
+        setTimeout(() => {
+          messageBox.classList.add("hidden");
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = "<span>Send Message</span>";
+        }, 5000);
+      });
+    </script>
 
     <!-- Optimized JavaScript for Performance -->
     <script>
@@ -1615,7 +1609,6 @@
         });
       }
 
-   
       // AOS initialization (optimized)
       if (typeof AOS !== "undefined") {
         AOS.init({
